@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add New Article</title>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+</head>
+<body>
+<h1>New Article</h1>
+<form method="post" th:action="@{/api/article/save}" th:object="${article}">
+
+    <p>Title: <input th:field="*{title}" type="text"/></p>
+    <p>Message: <input th:field="*{contents}" type="text"/></p>
+    <p><input type="submit" value="Submit"/> <input type="reset" value="Reset"/></p>
+</form>
+</body>
+</html>
