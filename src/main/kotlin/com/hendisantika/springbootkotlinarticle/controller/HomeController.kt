@@ -28,7 +28,7 @@ class HomeController {
 
     @RequestMapping(value = "/login")
     fun login(): String {
-        return "loginPage"
+        return "login"
     }
 
 

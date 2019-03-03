@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Search Article</title>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+</head>
+<body>
+<h1>Search Article</h1>
+<form action="#" method="get" th:action="@{/api/articles/search}">
+    <p>Article Id: <input name="id" type="number"/></p>
+
+    <p><input type="submit" value="Search"/></p>
+</form>
+</body>
+</html>
