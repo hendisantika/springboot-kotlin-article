@@ -15,3 +15,10 @@ cd springboot-kotlin-article
 ```
 gradle clean bootRun --info
 ```
+
+#### Login Username account
+|#|Username|Password|
+|---|---|---|
+|1|naruto|naruto|
+|2|sasuke|sasuke|
+
