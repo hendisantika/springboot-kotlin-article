@@ -22,6 +22,47 @@ gradle clean bootRun --info
 |1|naruto|naruto|
 |2|sasuke|sasuke|
 
+## Running via Docker
+
+### Package Spring Boot App
+```
+gradle clean build
+```
+
+### To build docker build
+```
+docker build -t "hendisantika/springboot-kotlin-article" .
+```
+### Start container
+```
+docker run -d -p 8080:8080 springboot-kotlin-article
+```
+
+### Stop container
+```
+docker stop {containerId}
+```
+docker stop springboot-kotlin-article
+
+### Remove container
+```
+docker rm springboot-kotlin-article
+```
+### Running MySQL image
+```
+docker run -p 6603:3306 --name=docker-mysql --env="MYSQL_ROOT_PASSWORD=root" --env="MYSQL_PASSWORD=root" --env="MYSQL_DATABASE=kotlin_demo" mysql
+```
+### Running spring boot image
+```
+docker run -d --name springboot-kotlin-article --link docker-mysql:mysql -p 8080:8080 -e DATABASE_HOST=docker-mysql -e DATABASE_PORT=6603 -e DATABASE_NAME=springboot-kotlin-article -e DATABASE_USER=root -e DATABASE_PASSWORD=root hendisantika/springboot-kotlin-article
+```
+
+### See running containers docker ps
+```
+docker ps 
+```
+
+
 ### Screen shot
 
 #### Login Page
