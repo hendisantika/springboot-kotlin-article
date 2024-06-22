@@ -1,14 +1,14 @@
 plugins {
-    id 'org.springframework.boot' version '3.3.0'
-    id 'org.jetbrains.kotlin.jvm' version '1.2.71'
-    id 'org.jetbrains.kotlin.plugin.spring' version '1.2.71'
+    id 'org.springframework.boot' version '3.3.1'
+    id 'org.jetbrains.kotlin.jvm' version '1.19.24'
+    id 'org.jetbrains.kotlin.plugin.spring' version '1.19.24'
 }
 
 apply plugin: 'io.spring.dependency-management'
 
 group = 'com.hendisantika'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '17'
+sourceCompatibility = '21'
 
 repositories {
     mavenCentral()
@@ -21,7 +21,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
-    implementation 'mysql:mysql-connector-java'
+    implementation 'com.mysql:mysql-connector-j'
     implementation 'org.mockito:mockito-core:2.8.9'
     implementation 'org.jetbrains.kotlin:kotlin-reflect'
     implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
@@ -31,13 +31,13 @@ dependencies {
 compileKotlin {
     kotlinOptions {
         freeCompilerArgs = ['-Xjsr305=strict']
-        jvmTarget = '1.8'
+        jvmTarget = '21'
     }
 }
 
 compileTestKotlin {
     kotlinOptions {
         freeCompilerArgs = ['-Xjsr305=strict']
-        jvmTarget = '1.8'
+        jvmTarget = '21'
     }
 }
