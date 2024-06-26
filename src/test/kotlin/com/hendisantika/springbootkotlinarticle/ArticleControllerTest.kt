@@ -3,14 +3,12 @@ package com.hendisantika.springbootkotlinarticle
 import com.hendisantika.springbootkotlinarticle.controller.ArticleController
 import com.hendisantika.springbootkotlinarticle.entity.Article
 import com.hendisantika.springbootkotlinarticle.service.ArticleService
-import junit.framework.Assert.assertEquals
-import junit.framework.TestCase
-import org.junit.Test
-import org.junit.runner.RunWith
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertNotNull
+import org.junit.jupiter.api.Test
 import org.mockito.InjectMocks
 import org.mockito.Mock
 import org.mockito.Mockito
-import org.mockito.junit.MockitoJUnitRunner
 
 /**
  * Created by IntelliJ IDEA.
@@ -21,7 +19,6 @@ import org.mockito.junit.MockitoJUnitRunner
  * Date: 2019-03-04
  * Time: 06:54
  */
-@RunWith(MockitoJUnitRunner::class)
 class ArticleControllerTest {
 
     @InjectMocks
@@ -34,7 +31,7 @@ class ArticleControllerTest {
         val expectedArticles = listOf(Article(1, "Mudah Belajar Spring Framework", "Spring Framework"))
         Mockito.doReturn(expectedArticles).`when`(articleService).getAllArticles()
         val result = articleController.getAllArticles()
-        TestCase.assertNotNull(result)
+        assertNotNull(result)
         assertEquals(result, expectedArticles)
     }
 }

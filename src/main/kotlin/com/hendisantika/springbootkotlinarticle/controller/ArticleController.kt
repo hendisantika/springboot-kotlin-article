@@ -2,12 +2,12 @@ package com.hendisantika.springbootkotlinarticle.controller
 
 import com.hendisantika.springbootkotlinarticle.entity.Article
 import com.hendisantika.springbootkotlinarticle.service.ArticleService
+import jakarta.validation.Valid
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 import java.util.*
-import javax.validation.Valid
 
 /**
  * Created by IntelliJ IDEA.

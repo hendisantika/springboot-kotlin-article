@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter
+import org.springframework.security.web.SecurityFilterChain
 import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository
 import javax.sql.DataSource
@@ -20,13 +20,14 @@ import javax.sql.DataSource
  * Time: 06:18
  */
 @Configuration
-class SecurityConfig : WebSecurityConfigurerAdapter() {
+class SecurityConfig {
 
     @Autowired
     lateinit var dataSource: DataSource
 
-    override fun configure(http: HttpSecurity) {
-        http.authorizeRequests().anyRequest().authenticated()
+    @Bean
+    fun configure(http: HttpSecurity): SecurityFilterChain {
+        http.authorizeHttpRequests()
                 .and()
                 .formLogin()
                 .loginPage("/login")
@@ -39,6 +40,7 @@ class SecurityConfig : WebSecurityConfigurerAdapter() {
                 .and()
                 .logout()
                 .permitAll()
+        return http.build()
     }
 
     @Bean
